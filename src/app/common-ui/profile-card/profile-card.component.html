@@ -1,5 +1,5 @@
 <div class="profile-card">
-  <div class="avatar-name">
+  <div class="profile-card__user">
     <img
       src="/assets/images/avatar_ryan.svg"
       alt="User Avatar"
@@ -7,8 +7,8 @@
     />
 
     <div class="profile-card__name">
-      <strong>Райан Гослинг</strong>
-      <span>ryangosling</span>
+      <strong class="h6">Райан Гослинг</strong>
+      <span class="name-subtitle">ryangosling</span>
     </div>
   </div>
 
@@ -19,10 +19,9 @@
   </div>
 
   <div class="profile-card__tags">
-    <div class="skill-tag">Angular</div>
-    <div class="skill-tag">HTML</div>
-    <div class="skill-tag">CSS</div>
-    <div class="skill-tag">REST</div>
+    @for (tag of tags; track $index) {
+      <app-skill-tag [text]="tag" />
+    }
   </div>
 
   <div class="profile-card__action-btns">
