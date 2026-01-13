@@ -1,8 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  Input,
-  OnInit,
+  computed,
+  input,
 } from '@angular/core';
 
 @Component({
@@ -12,17 +12,13 @@ import {
   styleUrl: './skill-tag.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SkillTagComponent implements OnInit {
+export class SkillTagComponent {
   private primaryTags = ['Angular', 'React', 'REST'];
 
-  @Input() public highlighted: boolean = false;
-  @Input() public text: string | null = null;
-
-  ngOnInit() {
-    this.highlighted = this.checkIsPrimary();
-  }
+  public highlighted = computed(() => this.checkIsPrimary() ?? false);
+  public text = input<string | null>(null);
 
   protected checkIsPrimary(): boolean {
-    return this.primaryTags.includes(this.text ?? '');
+    return this.primaryTags.includes(this.text() ?? '');
   }
 }

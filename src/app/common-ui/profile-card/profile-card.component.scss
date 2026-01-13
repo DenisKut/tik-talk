@@ -4,12 +4,20 @@
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 32px;
+  align-items: center;
+
+  &__user {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    gap: 20px;
+  }
 
   &__avatar {
     width: 70px;
     height: 70px;
     border-radius: 50%;
     overflow: hidden;
+    min-width: 70px;
   }
 
   &__name {
@@ -24,10 +32,4 @@
     gap: 4px;
     max-height: min-content;
   }
-}
-
-.avatar-name {
-  display: grid;
-  grid-template-columns: 70px 1fr;
-  gap: 20px;
 }
